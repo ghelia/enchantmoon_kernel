@@ -1,0 +1,25 @@
+#
+# GPIO_SW configuration
+#
+
+menuconfig NEW_GPIO
+	bool "GPIO_SW support"
+	default y
+	help
+		this a module which control single of our board`s gpio
+
+if NEW_GPIO
+
+config GPIO_SW_CLASS
+	bool "gpio class  Support"
+	default y
+
+comment "GPIO_SW drivers"
+config GPIO_SW
+	tristate "gpio support for the sw"
+	depends on NEW_GPIO
+	depends on GPIO_SW_CLASS
+	default m	
+endif # GPIO_SW
+
+
